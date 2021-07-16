@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
         var keyOwner = collision.gameObject.GetComponent<KeyOwner>();
         if (keyOwner && keyOwner.hasKey && CodesMatch(keyOwner, code)) 
         {
+            OnWinEvent.Invoke(code);
             Debug.Log("winner, winner, chicken dinner");
         }
     }

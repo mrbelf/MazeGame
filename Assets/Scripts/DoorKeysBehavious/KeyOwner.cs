@@ -49,7 +49,6 @@ public class KeyOwner : MonoBehaviour
         {
             if (hasKey)
             {
-                Debug.Log(ShouldSwitch(key));
                 if (ShouldSwitch(key)) 
                 {
                     canSwap = false;
