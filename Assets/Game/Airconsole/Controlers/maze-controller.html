@@ -1,0 +1,128 @@
+
+<html>
+  <head>
+      <script type="text/javascript"
+              src="https://www.airconsole.com/api/airconsole-1.7.0.js"></script>
+      <script type="text/javascript">
+  
+      var airconsole;
+      /**
+       * Sets up the communication to the screen.
+       */
+      function init() {
+        airconsole = new AirConsole({"orientation": "portrait"});
+       
+        airconsole.onActivePlayersChange = function(player_number) {
+          updateText(player_number);
+        }
+        airconsole.onReady = function() {
+          updateText();
+        }
+  
+        /*
+        * Here we are adding support for mouse events manually.
+        * --> WE STRONGLY ENCOURAGE YOU TO USE THE AIRCONSOLE CONTROLS LIBRARY
+        * WHICH IS EVEN BETTER (BUT WE DONT WANT TO BLOAT THE CODE HERE).
+        * https://github.com/AirConsole/airconsole-controls/
+        * 
+        * DO NOT USE ONCLICK HANDLERS.
+        * THEY ADD A 200MS DELAY!
+        */
+        if (!("ontouchstart" in document.createElement("div"))) {
+          var elements = document.getElementsByTagName("*");
+          for (var i = 0; i < elements.length; ++i) {
+            var element = elements[i];
+            var ontouchstart = element.getAttribute("ontouchstart");
+            if (ontouchstart) {
+              element.setAttribute("onmousedown", ontouchstart);
+            }
+            var ontouchend = element.getAttribute("ontouchend");
+            if (ontouchend) {
+              element.setAttribute("onmouseup", ontouchend);
+            }
+          }
+        }
+      }
+  
+    function updateText(player_number) {
+      var div = document.getElementById("player_id");
+        if (airconsole.getActivePlayerDeviceIds().length == 0) {
+          div.innerHTML = "Waiting for more players.";
+        } else if (player_number == undefined) {
+          div.innerHTML = "This is a 2 player game";
+        } else if (player_number == 0) {
+          div.innerHTML = "You are the player on the left";
+        } else if (player_number == 1) {
+          div.innerHTML = "You are the player on the right";
+        };
+    }
+  
+      function input(horizontal, vertical) {
+        airconsole.message(AirConsole.SCREEN, {horizontal: horizontal, vertical: vertical})
+      }
+  
+      </script>
+      <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+          }
+          
+          #wrapper {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+          }
+          
+          #controls {
+            display: inline-grid;
+            grid-column-gap: 0;
+            align-self: end;
+          }
+          
+          .movements_control {
+            background-color: pink;
+            border: solid 1px black;
+            margin: 0;
+            padding: 0;
+            width:  100px;
+            height: 100px;
+          }
+          
+          .movements_control img {
+            width: inherit;
+            height: inherit;
+          }
+          
+          #keyboard_key_up {
+            grid-column-start: 2;
+          }
+          
+          #keyboard_key_left {
+            grid-column-start: 1;
+          }
+          
+          #keyboard_key_down {
+            grid-column-start: 2;
+            grid-row-start: 3;
+          }
+          
+          #keyboard_key_right {
+            grid-column-start: 3;
+          }
+          
+        </style>
+  </head>
+  <body onload="init()">
+
+    <div id="wrapper">
+      <div id="controls">
+        <button id="keyboard_key_up" class="movements_control" ontouchstart = "input(0,5)" ontouchend = "input(0,0)">
+        <button id="keyboard_key_left" class="movements_control" ontouchstart = "input(-5,0)" ontouchend = "input(0,0)">
+        <button id="keyboard_key_down" class="movements_control" ontouchstart = "input(0,-5)" ontouchend = "input(0,0)">
+        <button id="keyboard_key_right" class="movements_control" ontouchstart = "input(5,0)" ontouchend = "input(0,0)">
+      </div>
+    </div>
+
+  </body>
+  </html>
