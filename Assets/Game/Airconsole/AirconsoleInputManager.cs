@@ -12,6 +12,11 @@ public class AirconsoleInputManager : MonoBehaviour, IGetInput
 
     public Vector2 GetAxis() => input;
 
+    public void SetId(int id) 
+    {
+        this.id = id;
+    }
+
     private void Awake()
     {
         AirConsole.instance.onMessage += OnMessage; 

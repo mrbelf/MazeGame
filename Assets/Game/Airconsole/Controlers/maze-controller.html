@@ -9,6 +9,7 @@
       /**
        * Sets up the communication to the screen.
        */
+
       function init() {
         airconsole = new AirConsole({"orientation": "portrait"});
        
@@ -17,6 +18,12 @@
         }
         airconsole.onReady = function() {
           updateText();
+        }
+
+        airconsole.onMessage = function(id, data)
+        {
+          var e = document.body;
+          e.id = data;
         }
   
         /*
@@ -66,6 +73,26 @@
         body {
             margin: 0;
             padding: 0;
+          }
+
+          #red
+          {
+            background-color: red;
+          }
+                    
+          #blue
+          {
+            background-color: blue;
+          }
+                    
+          #yellow
+          {
+            background-color: yellow;
+          }          
+          
+          #black
+          {
+            background-color: black;
           }
           
           #wrapper {

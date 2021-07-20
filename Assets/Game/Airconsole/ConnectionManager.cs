@@ -9,6 +9,8 @@ public class ConnectionManager : MonoBehaviour
     [SerializeField] private PlayerInitializer playerPrefab;
 
 
+    [SerializeField] private string [] colors;
+
 
     private void Start()
     {
@@ -17,11 +19,9 @@ public class ConnectionManager : MonoBehaviour
 
     private void OnDeviceConnect(int id)
     {
-        AirConsole.instance.Message(id, "red");
-    }
+        var color = colors[id];
+        Instantiate(playerPrefab).GetComponent<PlayerInitializer>().Init(id,color);
 
-    void Update()
-    {
-        
+        AirConsole.instance.Message(id, color);
     }
 }
