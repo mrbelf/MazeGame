@@ -7,6 +7,7 @@ using System.Text;
 
 public class MazeGenerator : MonoBehaviour
 {
+    [SerializeField] bool GenerateOnAwake;
     [SerializeField] List<Cell> maze;
     public static readonly float CellSize = 1f;
     [SerializeField] int rows = 10;
@@ -15,23 +16,28 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] GameObject topWallPrefab;
 
 
+    public Vector2Int Dimentions => new Vector2Int(rows, columns);
 
     private void Awake()
     {
-        GenerateMaze();
+        if (GenerateOnAwake) 
+        {
+            GenerateMaze();
 
-        //var maze_str = JsonUtility.ToJson(new MazeWrapper(maze.ToArray()));
-        //
-        //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        //var newDirectory = Directory.CreateDirectory(docPath + Path.DirectorySeparatorChar);
-        //string filePath = Path.Combine(newDirectory.FullName, $"{"maze"}.txt");
-        //Debug.Log("Saving maze at : " + filePath);
-        //using (StreamWriter outputFile = new StreamWriter(filePath, false))
-        //{
-        //    outputFile.Write(maze_str);
-        //}
+            //var maze_str = JsonUtility.ToJson(new MazeWrapper(maze.ToArray()));
+            //
+            //string docPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //var newDirectory = Directory.CreateDirectory(docPath + Path.DirectorySeparatorChar);
+            //string filePath = Path.Combine(newDirectory.FullName, $"{"maze"}.txt");
+            //Debug.Log("Saving maze at : " + filePath);
+            //using (StreamWriter outputFile = new StreamWriter(filePath, false))
+            //{
+            //    outputFile.Write(maze_str);
+            //}
 
-        BuildMaze(maze);
+            BuildMaze(maze);
+        }
+
     }
 
     public void BuildMaze(List<Cell> maze) 

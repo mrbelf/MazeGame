@@ -43,13 +43,13 @@ public class KeyOwner : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
         var key = collision.GetComponent<Key>();
-        if (key) 
+        if (key)
         {
             if (hasKey)
             {
-                if (ShouldSwitch(key)) 
+                if (ShouldSwitch(key))
                 {
                     canSwap = false;
                     SwitchKeys(key);
@@ -57,9 +57,17 @@ public class KeyOwner : MonoBehaviour
                 }
 
             }
-            else 
+            else
             {
                 GetKey(key);
+            }
+        }
+        else if(hasKey && this.ownedKey.GetCode() == this.code) 
+        {
+            var door = collision.GetComponent<Door>();
+            if (door && door.Id == this.code) 
+            {
+                door.Winner();
             }
         }
     }
