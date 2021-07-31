@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3ed0d03a2ad030e4daae1591c6d7f081
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Becak Outline
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c34d399f3e56c4640911f9312b3f42c1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
