@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class InteractLever : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        int x = Random.Range(0, 19);
+        int y = Random.Range(0, 19);
+
+        Vector3 pos = new Vector3(x/2f + .5f,y/2f + .5f);
+
+        transform.position = pos;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter2D(Collider2D collision){
         var player = collision.gameObject.GetComponent<MovimentComponent>();
