@@ -11,7 +11,7 @@
        */
 
       function init() {
-        airconsole = new AirConsole({"orientation": "portrait"});
+        airconsole = new AirConsole({"orientation": "landscape"});
        
         airconsole.onActivePlayersChange = function(player_number) {
           updateText(player_number);
@@ -68,89 +68,93 @@
       function input(horizontal, vertical) {
         airconsole.message(AirConsole.SCREEN, {horizontal: horizontal, vertical: vertical})
       }
+      function action() {
+        airconsole.message(AirConsole.SCREEN, {action: true})
+      }
   
       </script>
-      <style type="text/css">
-        body {
-            margin: 0;
-            padding: 0;
-          }
-
-          #red
-          {
-            background-color: red;
-          }
+      <style type=text/css>
+        #red
+        {
+        background-image: url("background-red.jpg");
+        background-color: red;
+        background-size: cover;
+        background-position: center center;
+        }
                     
-          #blue
-          {
-            background-color: blue;
-          }
+        #blue
+        {
+        background-image: url("background-blue.jpg");
+        background-color: red;
+        background-size: cover;
+        background-position: center center;
+        }
                     
-          #yellow
-          {
-            background-color: yellow;
-          }          
+        #yellow
+        {
+        background-image: url("background-yellow.jpg");
+        background-color: red;
+        background-size: cover;
+        background-position: center center;
+        }          
           
-          #black
-          {
-            background-color: black;
-          }
-          
-          #wrapper {
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-          }
-          
-          #controls {
-            display: inline-grid;
-            grid-column-gap: 0;
-            align-self: end;
-          }
-          
-          .movements_control {
-            background-color: pink;
-            border: solid 1px black;
-            margin: 0;
-            padding: 0;
-            width:  100px;
-            height: 100px;
-          }
-          
-          .movements_control img {
-            width: inherit;
-            height: inherit;
-          }
-          
-          #keyboard_key_up {
-            grid-column-start: 2;
-          }
-          
-          #keyboard_key_left {
-            grid-column-start: 1;
-          }
-          
-          #keyboard_key_down {
-            grid-column-start: 2;
-            grid-row-start: 3;
-          }
-          
-          #keyboard_key_right {
-            grid-column-start: 3;
-          }
-          
-        </style>
+        #black
+        {
+        background-image: url("background-black.jpg");
+        background-color: red;
+        background-size: cover;
+        background-position: center center;
+        }
+        .button-movement
+        {
+        width: 10%;
+        height: 20%;
+        position: absolute;
+        background-size: cover;
+        background-position: center center;
+        }
+        #button-left
+        {
+        left: 5%;
+        top: 50%;
+        background-image: url("Left.png");
+        }
+        #button-down
+        {
+        left: 20%;
+        top: 50%;
+        background-image: url("Down.png");
+        }
+        #button-right
+        {
+        left: 35%;
+        top: 50%;
+        background-image: url("Right.png");
+        }
+        #button-up
+        {
+        left: 20%;
+        top: 25%;
+        background-image: url("Up.png");
+        }
+        #button-action
+        {
+        left: 60%;
+        top: 25%;
+        position: absolute;
+        background-image: url("button-square.png");
+        width: 30%;
+        height: 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        }
+      </style>
   </head>
   <body onload="init()">
-
-    <div id="wrapper">
-      <div id="controls">
-        <button id="keyboard_key_up" class="movements_control" ontouchstart = "input(0,5)" ontouchend = "input(0,0)">
-        <button id="keyboard_key_left" class="movements_control" ontouchstart = "input(-5,0)" ontouchend = "input(0,0)">
-        <button id="keyboard_key_down" class="movements_control" ontouchstart = "input(0,-5)" ontouchend = "input(0,0)">
-        <button id="keyboard_key_right" class="movements_control" ontouchstart = "input(5,0)" ontouchend = "input(0,0)">
-      </div>
-    </div>
-
+    <div id="button-up" class="button-movement" ontouchstart = "input(0,5)" ontouchend = "input(0,0)"></div>
+    <div id="button-left" class="button-movement" ontouchstart = "input(-5,0)" ontouchend = "input(0,0)"></div>
+    <div id="button-down" class="button-movement" ontouchstart = "input(0,-5)" ontouchend = "input(0,0)"></div>
+    <div id="button-right" class="button-movement" ontouchstart = "input(5,0)" ontouchend = "input(0,0)"></div>
+    <div id="button-action" ontouchstart = "action()"></div>
   </body>
   </html>

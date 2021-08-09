@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.6873607, b: 0.07271269, a: 1}
+  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -204,6 +204,68 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97915345}
   m_CullTransparentMesh: 1
+--- !u!1 &232546000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 232546003}
+  - component: {fileID: 232546002}
+  - component: {fileID: 232546001}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &232546001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232546000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23f45b87d395664e94b78fe83815feb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerPicture:
+  - {fileID: 0}
+  - {fileID: 1923100060}
+  - {fileID: 769468120}
+  - {fileID: 985998150}
+  - {fileID: 430403028}
+--- !u!114 &232546002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232546000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10ea199f422a8b0499e3cdb0fc02ece0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &232546003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 232546000}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 518.55566, y: 317.27966, z: 149.56805}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292522950
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +278,7 @@ GameObject:
   - component: {fileID: 292522953}
   - component: {fileID: 292522952}
   m_Layer: 0
-  m_Name: ChangeSkin
+  m_Name: PlayerLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34901962, g: 0.67058825, b: 0.24313726, a: 1}
+  m_Color: {r: 0.24313726, g: 0.63529414, b: 0.67058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -292,6 +354,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 430403029}
+  - component: {fileID: 430403030}
   m_Layer: 0
   m_Name: PlayerSelect4
   m_TagString: Untagged
@@ -316,6 +379,23 @@ Transform:
   m_Father: {fileID: 750511341}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &430403030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430403028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
+  - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  skin: {fileID: 926160714}
+  lockedText: {fileID: 1705496586}
 --- !u!1 &552883258
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +408,7 @@ GameObject:
   - component: {fileID: 552883261}
   - component: {fileID: 552883260}
   m_Layer: 0
-  m_Name: ChangeSkin
+  m_Name: LockedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -366,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117647, g: 0.18431373, b: 0.09803922, a: 1}
+  m_Color: {r: 0.8117647, g: 0.8039216, b: 0.09411765, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -452,7 +532,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -559,6 +639,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 769468121}
+  - component: {fileID: 769468122}
   m_Layer: 0
   m_Name: PlayerSelect2
   m_TagString: Untagged
@@ -583,6 +664,23 @@ Transform:
   m_Father: {fileID: 750511341}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &769468122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769468120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
+  - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  skin: {fileID: 749296988}
+  lockedText: {fileID: 552883258}
 --- !u!1 &926160714
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,7 +738,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -667,6 +765,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 985998151}
+  - component: {fileID: 985998152}
   m_Layer: 0
   m_Name: PlayerSelect3
   m_TagString: Untagged
@@ -691,6 +790,23 @@ Transform:
   m_Father: {fileID: 750511341}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &985998152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 985998150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
+  - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  skin: {fileID: 1343647867}
+  lockedText: {fileID: 2064857802}
 --- !u!1 &1031851228
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,7 +947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -992,7 +1108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3478993, g: 0.6698113, b: 0.2432805, a: 1}
+  m_Color: {r: 0.24313726, g: 0.632629, b: 0.67058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1173,7 +1289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.1833698, b: 0.095674604, a: 1}
+  m_Color: {r: 0.8117647, g: 0.80302185, b: 0.09411763, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1291,7 +1407,7 @@ GameObject:
   - component: {fileID: 1705496589}
   - component: {fileID: 1705496588}
   m_Layer: 0
-  m_Name: ChangeSkin
+  m_Name: LockedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1329,7 +1445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.10980392, g: 0.3254902, b: 0.8117647, a: 1}
+  m_Color: {r: 0.8117647, g: 0.17254902, b: 0.11372549, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1408,7 +1524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.11098258, g: 0.32430577, b: 0.8113208, a: 1}
+  m_Color: {r: 0.8117647, g: 0.17133428, b: 0.10980393, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1448,6 +1564,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1923100061}
+  - component: {fileID: 1923100062}
   m_Layer: 0
   m_Name: PlayerSelect1
   m_TagString: Untagged
@@ -1472,6 +1589,23 @@ Transform:
   m_Father: {fileID: 750511341}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1923100062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923100060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
+  - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
+  skin: {fileID: 1480557680}
+  lockedText: {fileID: 292522950}
 --- !u!1 &1963171384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1622,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1963171385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1610,7 +1744,7 @@ GameObject:
   - component: {fileID: 2064857805}
   - component: {fileID: 2064857804}
   m_Layer: 0
-  m_Name: ChangeSkin
+  m_Name: LockedText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1648,7 +1782,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117647, g: 0.6901961, b: 0.07450981, a: 1}
+  m_Color: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
