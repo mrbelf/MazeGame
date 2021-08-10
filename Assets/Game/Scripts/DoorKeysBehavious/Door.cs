@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
     public void Winner() 
     {
         OnWinEvent.Invoke(code);
-        Debug.Log("winner, winner, chicken dinner");
+        AudioManager.GetInstance().PlayAudio("win");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

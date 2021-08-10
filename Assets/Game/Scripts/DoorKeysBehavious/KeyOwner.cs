@@ -36,6 +36,8 @@ public class KeyOwner : MonoBehaviour
             key.owner.ownedKey = null;
         key.owner = this;
 
+        AudioManager.GetInstance().PlayAudio("key");
+
         ownedKey = key;
     }
 
@@ -91,7 +93,7 @@ public class KeyOwner : MonoBehaviour
 
     private bool ShouldSwitch(Key key) 
     {
-        return canSwap && ownedKey?.code == this.code;
+        return (canSwap && ownedKey.code != this.code) || key.code == this.code;
     }
 
     private void FixedUpdate()

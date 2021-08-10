@@ -15,14 +15,16 @@ public class InteractLever : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision){
-        var player = collision.gameObject.GetComponent<MovimentComponent>();
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         Key[] array = GameObject.FindObjectsOfType<Key>();
         int temp = array[0].code;
         Color cTemp = array[0].GetComponent<SpriteRenderer>().color;
-        array[0].GetComponent<SpriteRenderer>().color = array[1].GetComponent<SpriteRenderer>().color;
-        array[1].GetComponent<SpriteRenderer>().color = cTemp;
 
+        array[0].GetComponent<SpriteRenderer>().color = array[1].GetComponent<SpriteRenderer>().color;
+        array[0].GetComponent<Key>().code = array[1].GetComponent<Key>().code;
+
+        array[1].GetComponent<SpriteRenderer>().color = cTemp;
+        array[1].GetComponent<Key>().code = temp;
     }
 }
