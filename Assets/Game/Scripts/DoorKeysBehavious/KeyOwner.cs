@@ -16,6 +16,9 @@ public class KeyOwner : MonoBehaviour
 
     public bool hasKey => ownedKey != null;
     public int ownerCode => code;
+
+    public void SetCode(int value) => code = value;
+
     public int GetKeyCode() 
     {
         if (hasKey)
@@ -29,12 +32,17 @@ public class KeyOwner : MonoBehaviour
         key.gameObject.transform.parent = transform;
         key.transform.position = transform.position;
 
+        if (key.owner)
+            key.owner.ownedKey = null;
+        key.owner = this;
+
         ownedKey = key;
     }
 
     public void SwitchKeys(Key key) 
     {
         ownedKey.transform.parent = null;
+        ownedKey.owner = null;
         ownedKey.transform.position = key.transform.position;
         lastKeySwitchCode = ownedKey.GetCode();
         lastSwitch = Time.time;
@@ -43,9 +51,13 @@ public class KeyOwner : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    { 
+    {
+        if (ownedKey && ownedKey.code == this.code)
+            return;
+
         var key = collision.GetComponent<Key>();
-        if (key)
+
+        if (key && (!key.owner || key.code == this.code))
         {
             if (hasKey)
             {
@@ -55,7 +67,6 @@ public class KeyOwner : MonoBehaviour
                     SwitchKeys(key);
                     StartCoroutine(WaitSetSwapTrue());
                 }
-
             }
             else
             {
@@ -80,7 +91,7 @@ public class KeyOwner : MonoBehaviour
 
     private bool ShouldSwitch(Key key) 
     {
-        return canSwap;
+        return canSwap && ownedKey?.code == this.code;
     }
 
     private void FixedUpdate()

@@ -6,10 +6,10 @@ public class InteractLever : MonoBehaviour
 {
     private void Start()
     {
-        int x = Random.Range(0, 19);
-        int y = Random.Range(0, 19);
+        int x = Random.Range(0,9);
+        int y = Random.Range(0,9);
 
-        Vector3 pos = new Vector3(x/2f + .5f,y/2f + .5f);
+        Vector3 pos = new Vector3(x + .5f,y + .5f);
 
         transform.position = pos;
     }

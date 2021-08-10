@@ -8,5 +8,6 @@ public class PlayerInitializer : MonoBehaviour
     {
         GetComponent<AirconsoleInputManager>().SetId(id);
         GetComponent<SpriteRenderer>().color = c;
+        GetComponent<KeyOwner>().SetCode(id);
     }
 }
