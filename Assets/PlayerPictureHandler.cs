@@ -5,53 +5,38 @@ using UnityEngine.UI;
 
 public class PlayerPictureHandler : MonoBehaviour
 {
+    public int playerNumber;
     private bool locked = false;
     private int chosenSkin = 0;
-
     public Sprite[] skins;
     public GameObject skin;
     public GameObject lockedText;
-    
-    public void ChangeSkin(int change)
+    public GameObject playerManager;
+    private AirConsolePlayerChecker checker;
+    private void Start()
     {
-        Debug.Log("change skin");
-        if (locked == false)
+        checker = playerManager.GetComponent<AirConsolePlayerChecker>();
+    }
+    private void Update()
+    {
+        int temp = checker.GetSkinNumber(playerNumber);
+        if(temp != chosenSkin)
         {
-
-            Debug.Log("pre-chosenSkin");
-            Debug.Log(chosenSkin);
-            chosenSkin = (chosenSkin + change) % skins.Length;
-            if(chosenSkin < 0)
-            {
-                chosenSkin = skins.Length - 1;
-            }
-            Debug.Log("change");
-            Debug.Log(change);
-            Debug.Log("Length");
-            Debug.Log(skins.Length);
-            Debug.Log("chosenSkin");
-            Debug.Log(chosenSkin);
+            chosenSkin = temp;
             skin.GetComponent<Image>().sprite = skins[chosenSkin];
         }
-    }
-    public void ChangeLock()
-    {
-        Debug.Log("change lock");
-        if (locked == false)
+        bool temp2 = checker.GetLockedState(playerNumber);
+        if (temp2 != locked)
         {
-            locked = true;
-            lockedText.GetComponent<Text>().text = "[                       ]";
-        }
-        else
-        {
-            locked = false;
-            lockedText.GetComponent<Text>().text = "<                       >";
+            locked = temp2;
+            if (locked == true)
+            {
+                lockedText.GetComponent<Text>().text = "[                       ]";
+            }
+            else
+            {
+                lockedText.GetComponent<Text>().text = "<                       >";
+            }
         }
     }
-
-    public bool IsLocked()
-    {
-        return locked;
-    }
-
 }

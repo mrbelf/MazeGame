@@ -13,6 +13,12 @@ public class PlayerCollection : MonoBehaviour
         AirConsole.instance.onDisconnect += OnDeviceDisconnect;
     }
 
+    private void Update()
+    {
+        var plrs = AirConsole.instance.GetControllerDeviceIds();
+        Debug.Log(plrs.Count);
+    }
+
     private void OnDeviceConnect(int id)
     {
         players.Add(id);

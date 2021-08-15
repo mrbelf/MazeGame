@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 1}
+  m_Color: {r: 1, g: 0.13679248, b: 0.13679248, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -235,7 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerPicture:
-  - {fileID: 0}
   - {fileID: 1923100060}
   - {fileID: 769468120}
   - {fileID: 985998150}
@@ -316,7 +315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24313726, g: 0.63529414, b: 0.67058825, a: 1}
+  m_Color: {r: 0.24313726, g: 0.6313726, b: 0.67058825, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -391,11 +390,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 3
   skins:
   - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
   skin: {fileID: 926160714}
   lockedText: {fileID: 1705496586}
+  playerManager: {fileID: 232546000}
 --- !u!1 &552883258
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +409,7 @@ GameObject:
   - component: {fileID: 552883261}
   - component: {fileID: 552883260}
   m_Layer: 0
-  m_Name: LockedText
+  m_Name: PlayerLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117647, g: 0.8039216, b: 0.09411765, a: 1}
+  m_Color: {r: 0.003921569, g: 0.84313726, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -676,11 +677,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 1
   skins:
   - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
   skin: {fileID: 749296988}
   lockedText: {fileID: 552883258}
+  playerManager: {fileID: 232546000}
 --- !u!1 &926160714
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,11 +805,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 2
   skins:
   - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
   skin: {fileID: 1343647867}
   lockedText: {fileID: 2064857802}
+  playerManager: {fileID: 232546000}
 --- !u!1 &1031851228
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117647, g: 0.80302185, b: 0.09411763, a: 1}
+  m_Color: {r: 0.0022080033, g: 0.8396226, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1407,7 +1412,7 @@ GameObject:
   - component: {fileID: 1705496589}
   - component: {fileID: 1705496588}
   m_Layer: 0
-  m_Name: LockedText
+  m_Name: PlayerLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1445,7 +1450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117647, g: 0.17254902, b: 0.11372549, a: 1}
+  m_Color: {r: 0.9245283, g: 0.8076963, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1524,7 +1529,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8117647, g: 0.17133428, b: 0.10980393, a: 1}
+  m_Color: {r: 0.9254902, g: 0.80784315, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1601,11 +1606,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0614ced2084b4e4bae9e9612be65288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNumber: 0
   skins:
   - {fileID: 21300000, guid: 7c42ddf86e6f5f3468cf11e6919fb9a7, type: 3}
   - {fileID: 21300000, guid: bcf0f9843a5cf4e45b6e49bd5c632e98, type: 3}
   skin: {fileID: 1480557680}
   lockedText: {fileID: 292522950}
+  playerManager: {fileID: 232546000}
 --- !u!1 &1963171384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1751,7 @@ GameObject:
   - component: {fileID: 2064857805}
   - component: {fileID: 2064857804}
   m_Layer: 0
-  m_Name: LockedText
+  m_Name: PlayerLocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,7 +1789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.62352943, g: 0.62352943, b: 0.62352943, a: 1}
+  m_Color: {r: 1, g: 0.13725491, b: 0.13725491, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

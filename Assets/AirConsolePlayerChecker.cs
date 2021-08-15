@@ -8,30 +8,38 @@ using Newtonsoft.Json.Linq;
 public class AirConsolePlayerChecker : MonoBehaviour
 {
     public GameObject [] PlayerPicture;
-    private GameObject obj;
-    private PlayerCollection players;
-    private PlayerPictureHandler pictureHandler;
-    private 
-    // Start is called before the first frame update
-    void Start()
-    {
-        obj = GameObject.Find("PlayerCollection");
-        players = obj.GetComponent<PlayerCollection>();
+    Dictionary<int, int> skinMapping = new Dictionary<int, int>();
+    Dictionary<int, bool> lockedMapping = new Dictionary<int, bool>();
+    int skinsLength = 2;
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         var ready = true;
-        var collection = players.GetPlayers();
-        for(int i=1; i<=4; i++)
+        var collection = AirConsole.instance.GetActivePlayerDeviceIds;
+        Dictionary<int, int>.KeyCollection keyColl = skinMapping.Keys;
+        foreach (int key in keyColl)
         {
-            if(collection.Contains(i))
+            if(!collection.Contains(key))
+            {
+                skinMapping.Remove(key);
+                lockedMapping.Remove(key);
+            }
+        }
+        foreach(int id in collection)
+        {
+            if(!skinMapping.ContainsKey(id))
+            {
+                skinMapping[id] = 0;
+                lockedMapping[id] = false;
+            }
+        }
+        for (int i=0; i < 4; i++)
+        {
+            int id = AirConsole.instance.ConvertPlayerNumberToDeviceId(i);
+            if (collection.Contains(id))
             {
                 PlayerPicture[i].SetActive(true);
-                pictureHandler = PlayerPicture[i].GetComponent<PlayerPictureHandler>();
-                if(pictureHandler.IsLocked() == false)
+                if(lockedMapping[id] == false)
                 {
                     ready = false;
                 }
@@ -43,16 +51,36 @@ public class AirConsolePlayerChecker : MonoBehaviour
         }
         if(ready == true && collection.Count > 0)
         {
-            SceneManager.LoadScene(sceneName: "WinnerScene");
+            SceneManager.LoadScene(sceneName: "Scene");
         }
     }
-    public GameObject GetPlayerPictureGameObject(int id)
-    {
-        Debug.Log("call");
-        var collection = players.GetPlayers();
-        if (collection.Contains(id))
-            return PlayerPicture[id];
-        return null;
 
+    public int GetSkinNumber(int number)
+    {
+        skinMapping.TryGetValue(AirConsole.instance.ConvertPlayerNumberToDeviceId(number), out int skinNumber);
+        return skinNumber;
+    }
+
+    public void ChangeSkin(int id, int change)
+    {
+        skinMapping.TryGetValue(id, out int skinNumber);
+        skinNumber = (skinNumber + change) % skinsLength;
+        if (skinNumber < 0)
+        {
+            skinNumber = skinsLength - 1;
+        }
+        skinMapping[id] = skinNumber;
+    }
+
+    public bool GetLockedState(int number)
+    {
+        lockedMapping.TryGetValue(AirConsole.instance.ConvertPlayerNumberToDeviceId(number), out bool locked);
+        return locked;
+    }
+
+    public void ChangeLocked(int id)
+    {
+        lockedMapping.TryGetValue(id, out bool locked);
+        lockedMapping[id] = !locked;
     }
 }

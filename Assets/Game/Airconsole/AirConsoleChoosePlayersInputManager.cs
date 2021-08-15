@@ -8,7 +8,6 @@ using Newtonsoft.Json.Linq;
 public class AirConsoleChoosePlayersInputManager : MonoBehaviour
 {
     private AirConsolePlayerChecker playerChecker;
-    private PlayerPictureHandler pictureHandler;
     private void Awake()
     {
         playerChecker = gameObject.GetComponent<AirConsolePlayerChecker>();
@@ -21,21 +20,18 @@ public class AirConsoleChoosePlayersInputManager : MonoBehaviour
         if (scene.name == "ChoosePlayersScene")
         {
             Debug.Log("message");
-            var obj = playerChecker.GetPlayerPictureGameObject(deviceID);
-            if (obj != null)
-            {
+            
                 Debug.Log("not null");
-                pictureHandler = obj.GetComponent<PlayerPictureHandler>();
                 if (data["horizontal"] != null && data["vertical"] != null)
                 {
                     Debug.Log("comm1");
                     if ((float)data["horizontal"] > 0)
                     {
-                        pictureHandler.ChangeSkin(-1);
+                        playerChecker.ChangeSkin(deviceID, - 1);
                     }
                     else if ((float)data["horizontal"] < 0)
                     {
-                        pictureHandler.ChangeSkin(1);
+                        playerChecker.ChangeSkin(deviceID, 1);
                     }
                 }
                 else if (data["action"] != null)
@@ -43,10 +39,10 @@ public class AirConsoleChoosePlayersInputManager : MonoBehaviour
                     Debug.Log("comm2");
                     if ((bool)data["action"] == true)
                     {
-                        pictureHandler.ChangeLock();
+                        playerChecker.ChangeLocked(deviceID);
                     }
                 }
-            }
+            
         }
     }
 }

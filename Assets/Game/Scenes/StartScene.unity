@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 241175401}
   - component: {fileID: 241175400}
   - component: {fileID: 241175402}
+  - component: {fileID: 241175403}
   m_Layer: 0
   m_Name: ConnectionManager
   m_TagString: Untagged
@@ -227,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241175399}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 240c83b59f6ce884e87a1f120fb92634, type: 3}
   m_Name: 
@@ -239,7 +240,7 @@ MonoBehaviour:
   - 
   - blue
   - yellow
-  - black
+  - green
   - red
 --- !u!4 &241175401
 Transform:
@@ -267,6 +268,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cefa312accc62647855e542f9dd77de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &241175403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241175399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a860c7fd8cba4c45858d64a7970ae67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
+  doorPrefab: {fileID: 4090878787492576271, guid: cd5dd9be69afc38488639868919bd04f, type: 3}
+  keyPrefab: {fileID: 902537302797122341, guid: 3a8d9038d5069e745ae97a5fcc6f8ab6, type: 3}
+  colors:
+  - blue
+  - green
+  - red
+  - yellow
 --- !u!1 &272904623
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +398,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &572660875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &669057684
 GameObject:
@@ -493,68 +514,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 669057684}
   m_CullTransparentMesh: 1
---- !u!1 &764639205
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 764639207}
-  - component: {fileID: 764639206}
-  - component: {fileID: 764639208}
-  m_Layer: 0
-  m_Name: MazeGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &764639206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764639205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a420b60a1a2becc41bfd9f69560eec02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GenerateOnAwake: 0
-  maze: []
-  rows: 10
-  columns: 10
-  rightWallPrefab: {fileID: 2337376221373940405, guid: b3ad07b552000774fb251679376191fe, type: 3}
-  topWallPrefab: {fileID: 8732593727734268592, guid: 61817b2bde0e3064da8f75a340c3c626, type: 3}
---- !u!4 &764639207
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764639205}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 518.55566, y: 317.27966, z: 149.56805}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &764639208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 764639205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cefa312accc62647855e542f9dd77de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &820320356
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +652,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1145398441
 GameObject:

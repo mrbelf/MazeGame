@@ -11,6 +11,8 @@
        */
 
       function init() {
+        var e = document.body;
+        e.id="black";
         airconsole = new AirConsole({"orientation": "landscape"});
        
         airconsole.onActivePlayersChange = function(player_number) {
@@ -76,32 +78,34 @@
       <style type=text/css>
         #red
         {
-        background-image: url("background-red.jpg");
-        background-color: red;
+        background-image: url("background-red.png");
         background-size: cover;
         background-position: center center;
         }
                     
         #blue
         {
-        background-image: url("background-blue.jpg");
-        background-color: red;
+        background-image: url("background-blue.png");
         background-size: cover;
         background-position: center center;
         }
                     
         #yellow
         {
-        background-image: url("background-yellow.jpg");
-        background-color: red;
+        background-image: url("background-yellow.png");
         background-size: cover;
         background-position: center center;
         }          
           
         #black
         {
-        background-image: url("background-black.jpg");
-        background-color: red;
+        background-image: url("background-black.png");
+        background-size: cover;
+        background-position: center center;
+        }
+        #green
+        {
+        background-image: url("background-green.png");
         background-size: cover;
         background-position: center center;
         }
