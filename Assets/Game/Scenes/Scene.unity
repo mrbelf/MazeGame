@@ -281,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &845567178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -712,8 +712,9 @@ MonoBehaviour:
   maze: []
   rows: 10
   columns: 10
-  rightWallPrefab: {fileID: 2337376221373940405, guid: b3ad07b552000774fb251679376191fe, type: 3}
-  topWallPrefab: {fileID: 8732593727734268592, guid: 61817b2bde0e3064da8f75a340c3c626, type: 3}
+  rightWallPrefab: {fileID: 219807702797180311, guid: e10b3d9c488a98943a128a6a6be08cbf, type: 3}
+  topWallPrefab: {fileID: 5831311622916872897, guid: 61817b2bde0e3064da8f75a340c3c626, type: 3}
+  pillar: {fileID: 4221855790453759478, guid: f897b21d305b77441bf5d64cb194abaf, type: 3}
 --- !u!4 &1764203469
 Transform:
   m_ObjectHideFlags: 0
