@@ -14,6 +14,7 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] int columns = 10;
     [SerializeField] GameObject rightWallPrefab;
     [SerializeField] GameObject topWallPrefab;
+    [SerializeField] GameObject pillar;
 
 
     public Vector2Int Dimentions => new Vector2Int(rows, columns);
@@ -47,8 +48,17 @@ public class MazeGenerator : MonoBehaviour
             foreach (Cell c in maze)
             {
                 c.BuildWalls(topWallPrefab,rightWallPrefab);
+                if (pillar)
+                    BuildPillars();
             }
         }
+    }
+
+    private void BuildPillars() 
+    {
+        for (int i = 0; i < rows + 1; i++)
+            for (int j = 0; j < columns + 1; j++)
+                Instantiate(pillar,new Vector3(i*CellSize,j*CellSize),pillar.transform.rotation,null);
     }
 
 
