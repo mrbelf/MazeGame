@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 2079158094}
   - component: {fileID: 2079158096}
   m_Layer: 0
-  m_Name: ConnectionManager
+  m_Name: MazeManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

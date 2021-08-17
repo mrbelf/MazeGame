@@ -27,7 +27,7 @@ public class TimerScript : MonoBehaviour
             }
             else
             {
-                SceneManager.LoadScene(sceneName: "StartScene");
+                SceneManager.LoadScene(sceneName: "ChoosePlayersScene");
                 timeRemaining = 0;
                 timerIsRunning = false;
             }

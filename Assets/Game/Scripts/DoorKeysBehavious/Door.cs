@@ -7,13 +7,11 @@ public class Door : MonoBehaviour
 {
     [SerializeField] int code;
 
-    public UnityEvent<int> OnWinEvent;
-
     public int Id => code;
 
     public void Winner() 
     {
-        OnWinEvent.Invoke(code);
+        gameObject.GetComponent<WinnerOnCollision>().CallWinner(code);
         AudioManager.GetInstance().PlayAudio("win");
     }
 
