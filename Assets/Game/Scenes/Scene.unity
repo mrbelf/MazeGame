@@ -281,7 +281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &845567178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 845567177}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e37d83ebce05ad74683fd3228dde9e7d, type: 3}
   m_Name: 
@@ -628,8 +628,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.754717, g: 0.67523646, b: 0.4734781, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.32156864, g: 0.2509804, b: 0.16862746, a: 1}
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -810,7 +810,9 @@ MonoBehaviour:
   rows: 10
   columns: 10
   rightWallPrefab: {fileID: 219807702797180311, guid: e10b3d9c488a98943a128a6a6be08cbf, type: 3}
+  rightWallPrefabTorch: {fileID: 118149741631071494, guid: 3625cfca0548ee441b8f0b84328997fb, type: 3}
   topWallPrefab: {fileID: 5831311622916872897, guid: 61817b2bde0e3064da8f75a340c3c626, type: 3}
+  topWallPrefabTorch: {fileID: 1416809422335383169, guid: 40befb3953dc65b4eb61e502cb69da5c, type: 3}
   pillar: {fileID: 4221855790453759478, guid: f897b21d305b77441bf5d64cb194abaf, type: 3}
 --- !u!4 &1764203469
 Transform:
