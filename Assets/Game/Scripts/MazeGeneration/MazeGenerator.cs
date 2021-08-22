@@ -50,9 +50,9 @@ public class MazeGenerator : MonoBehaviour
             foreach (Cell c in maze)
             {
                 c.BuildWalls(topWallPrefab, topWallPrefabTorch, rightWallPrefab, rightWallPrefabTorch);
-                if (pillar)
-                    BuildPillars();
             }
+            if(pillar)
+                BuildPillars();
         }
     }
 
