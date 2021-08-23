@@ -77,8 +77,8 @@ public class KeyOwner : MonoBehaviour
         }
         else if(hasKey && this.ownedKey.GetCode() == this.code) 
         {
-            var door = collision.GetComponent<Door>();
-            if (door && door.Id == this.code) 
+            var door = collision.GetComponent<CollisionDoor>();
+            if (door && door.GetId() == this.code) 
             {
                 door.Winner();
             }

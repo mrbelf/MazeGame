@@ -235,8 +235,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
-  doorPrefab: {fileID: 4090878787492576271, guid: cd5dd9be69afc38488639868919bd04f, type: 3}
-  keyPrefab: {fileID: 902537302797122341, guid: 3a8d9038d5069e745ae97a5fcc6f8ab6, type: 3}
+  doorPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
   colors:
   - 
   - blue
@@ -282,8 +282,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
-  doorPrefab: {fileID: 4090878787492576271, guid: cd5dd9be69afc38488639868919bd04f, type: 3}
-  keyPrefab: {fileID: 902537302797122341, guid: 3a8d9038d5069e745ae97a5fcc6f8ab6, type: 3}
+  doorPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
   colors:
   - blue
   - green

@@ -199,6 +199,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350282274}
   m_CullTransparentMesh: 1
+--- !u!1 &508004652 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1251383119880974468, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+  m_PrefabInstance: {fileID: 545779330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &508004654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 508004652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c54fd3a14b1b514280bf3c91bf6bb9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &545779330
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1251383119880974468, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_Name
+      value: button
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.503
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.491
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.254
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879723970087660094, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 962a2ef1fc4a8bc4e97a981ea48df4ac, type: 3}
 --- !u!1 &745960121
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +1020,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1809660505
 Transform:
   m_ObjectHideFlags: 0
@@ -1082,8 +1156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
-  doorPrefab: {fileID: 4090878787492576271, guid: cd5dd9be69afc38488639868919bd04f, type: 3}
-  keyPrefab: {fileID: 902537302797122341, guid: 3a8d9038d5069e745ae97a5fcc6f8ab6, type: 3}
+  doorPrefab: {fileID: 0}
+  keyPrefab: {fileID: 0}
   colors:
   - '-'
   - blue
@@ -1117,8 +1191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
-  doorPrefab: {fileID: 4090878787492576271, guid: cd5dd9be69afc38488639868919bd04f, type: 3}
-  keyPrefab: {fileID: 902537302797122341, guid: 3a8d9038d5069e745ae97a5fcc6f8ab6, type: 3}
+  doorPrefab: {fileID: 7015368420167404191, guid: afb549d2f0dadb24ab17eab6d979d619, type: 3}
+  keyPrefab: {fileID: 2014340961187078926, guid: 21967745bafaa22429e8326ff07603ca, type: 3}
   colors:
   - blue
   - green
