@@ -5,12 +5,13 @@ using UnityEngine;
 public class RandomizeLocation : MonoBehaviour
 {
     // Start is called before the first frame update
+    MazeGenerator maze;
     private void Start()
     {
-        int x = Random.Range(0, 9);
-        int y = Random.Range(0, 9);
+        maze = GameObject.Find("MazeGenerator").GetComponent<MazeGenerator>();
 
-        Vector3 pos = new Vector3(x + .5f, y + .5f, -0.2f);
+        Vector3 pos = maze.RandomPositionInMaze();
+        pos.z = -0.2f;
 
         transform.position = pos;
     }

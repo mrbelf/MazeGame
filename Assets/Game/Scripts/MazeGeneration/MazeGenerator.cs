@@ -10,19 +10,20 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] bool GenerateOnAwake;
     [SerializeField] List<Cell> maze;
     public static readonly float CellSize = 1f;
-    [SerializeField] int rows = 10;
-    [SerializeField] int columns = 10;
+    [SerializeField] public int rows = 10;
+    [SerializeField] public int columns = 10;
     [SerializeField] GameObject rightWallPrefab;
     [SerializeField] GameObject rightWallPrefabTorch;
     [SerializeField] GameObject topWallPrefab;
     [SerializeField] GameObject topWallPrefabTorch;
     [SerializeField] GameObject pillar;
-
+    private int[,] map; //1 = torch, 2 = door, 3 = others
 
     public Vector2Int Dimentions => new Vector2Int(rows, columns);
 
     private void Awake()
     {
+        map = new int[rows, columns];
         if (GenerateOnAwake) 
         {
             GenerateMaze();
@@ -49,7 +50,7 @@ public class MazeGenerator : MonoBehaviour
         {
             foreach (Cell c in maze)
             {
-                c.BuildWalls(topWallPrefab, topWallPrefabTorch, rightWallPrefab, rightWallPrefabTorch);
+                c.BuildWalls(topWallPrefab, topWallPrefabTorch, rightWallPrefab, rightWallPrefabTorch, map);
             }
             if(pillar)
                 BuildPillars();
@@ -174,6 +175,74 @@ public class MazeGenerator : MonoBehaviour
         return maze;
     }
 
+    public Vector3 RandomPositionInMazeBoundary()
+    {
+        int x=0;
+        int y=0;
+        bool found = false;
+        int c = 0;
+        while(found == false && c<(rows*columns))
+        {
+            c++;
+            var tmp1 = UnityEngine.Random.Range(0f, 1f);
+            if(tmp1 < 0.5)
+            {
+                var tmp2 = UnityEngine.Random.Range(0f, 1f);
+                if (tmp2 < 0.5)
+                {
+                    x = 0;
+                }
+                else
+                {
+                    x = rows - 1;
+                }
+                y = UnityEngine.Random.Range(0, columns);
+            }
+            else
+            {
+                var tmp2 = UnityEngine.Random.Range(0f, 1f);
+                if (tmp2 < 0.5)
+                {
+                    y = 0;
+                }
+                else
+                {
+                    y = columns - 1;
+                }
+                x = UnityEngine.Random.Range(0, rows);
+            }
+            if(map[x,y] == 0 && (x != 0 || y != 0))
+            {
+                found = true;
+                map[x, y] = 2;
+            }
+
+        }
+        return new Vector3(x * CellSize + CellSize / 2, y * CellSize + CellSize / 2);
+    }
+
+    public Vector3 RandomPositionInMaze()
+    {
+        int x = 0;
+        int y = 0;
+        bool found = false;
+        int c = 0;
+        while (found == false && c < (rows * columns))
+        {
+            c++;
+            x = UnityEngine.Random.Range(0, rows);
+            y = UnityEngine.Random.Range(0, columns);
+            
+            if (map[x, y] < 2 && (x != 0 || y != 0))
+            {
+                found = true;
+                map[x, y] = 3;
+            }
+
+        }
+        return new Vector3(x * CellSize + CellSize / 2, y * CellSize + CellSize / 2);
+    }
+
     [Serializable]
     public class MazeWrapper
     {
@@ -214,23 +283,27 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        public void BuildWalls(GameObject topWallPrefab, GameObject topWallPrefabTorch, GameObject rightWallPrefab, GameObject rightWallPrefabTorch) 
+        public void BuildWalls(GameObject topWallPrefab, GameObject topWallPrefabTorch, GameObject rightWallPrefab, GameObject rightWallPrefabTorch, int [,] map) 
         {
             var x = this.i * cellSize;
             var y = this.j * cellSize;
-            var hasTorchRight = UnityEngine.Random.Range(0f, 1f) < 0.15;
-            var hasTorchTop = UnityEngine.Random.Range(0f, 1f) < 0.15;
+            var hasTorchRight = UnityEngine.Random.Range(0f, 1f) < 0.3;
+            var hasTorchTop = UnityEngine.Random.Range(0f, 1f) < 0.3;
 
             if (rightWall) 
             {
                 var rightWall = Instantiate(hasTorchRight ? rightWallPrefabTorch :  rightWallPrefab);
                 rightWall.transform.position = new Vector3(x + cellSize, y + (cellSize/2));
+                if(hasTorchRight)
+                    map[i, j] = 1;
             }
 
             if (topWall) 
             {
                 var topWall = Instantiate(hasTorchTop ? topWallPrefabTorch : topWallPrefab);
                 topWall.transform.position = new Vector3(x + (cellSize/2), y + cellSize);
+                if (hasTorchTop)
+                    map[i, j] = 1;
             }
 
             if (this.i == 0) 

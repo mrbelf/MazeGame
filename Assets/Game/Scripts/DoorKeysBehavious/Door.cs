@@ -7,6 +7,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] int code;
     public GameObject[] lights;
+    MazeGenerator maze;
 
     public int Id => code;
 
@@ -53,21 +54,21 @@ public class Door : MonoBehaviour
         var transform = gameObject.GetComponent<Transform>();
         var x = transform.position.x;
         var y = transform.position.y;
+        maze = GameObject.Find("MazeGenerator").GetComponent<MazeGenerator>();
+        int rows = maze.rows;
+        float CellSize = MazeGenerator.CellSize;
 
-        if (y < 2)
+        if (y == ( CellSize / 2 ))
         {
             transform.eulerAngles = new Vector3(0, 0, 180);
         }
-        else if (y < 5)
+        else if (x == ( CellSize / 2))
         {
-            if (x > 5)
-            {
-                transform.eulerAngles = new Vector3(0, 0, 270);
-            }
-            else
-            {
-                transform.eulerAngles = new Vector3(0, 0, 90);
-            }
+            transform.eulerAngles = new Vector3(0, 0, 90);
+        }
+        else if (x == ((rows * CellSize) - (CellSize / 2)))
+        {
+            transform.eulerAngles = new Vector3(0, 0, 270);
         }
     }
 }
