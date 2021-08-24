@@ -65,7 +65,7 @@ public class InitializeMaze : MonoBehaviour
             door.GetComponent<Door>().Init(AirConsole.instance.ConvertPlayerNumberToDeviceId(i), color);
             key.GetComponent<Key>().Init(AirConsole.instance.ConvertPlayerNumberToDeviceId(i), color);
 
-            var positions = GetPositions(mazeGenerator.Dimentions, MazeGenerator.CellSize);
+            var positions = GetPositions(mazeGenerator.Dimentions, MazeGenerator.CellSize, i);
 
             player.transform.position = positions[0];
             door.transform.position = positions[1];
@@ -79,11 +79,28 @@ public class InitializeMaze : MonoBehaviour
     /// </summary>
     /// <param name="currentConnection"></param>
     /// <returns></returns>
-    private Vector3[] GetPositions(Vector2Int mazeDimentions, float cellSize)
+    private Vector3[] GetPositions(Vector2Int mazeDimentions, float cellSize, int n)
     {
         
         var positions = new Vector3[3];
-        positions[0] = new Vector3(cellSize / 2, cellSize / 2);
+        switch(n)
+        {
+            case 0:
+                positions[0] = new Vector3(cellSize / 2, cellSize / 2);
+            break;
+            case 1:
+                positions[0] = new Vector3(mazeDimentions.x * cellSize - cellSize / 2, mazeDimentions.y * cellSize - cellSize / 2);
+            break;
+            case 2:
+                positions[0] = new Vector3(cellSize / 2, mazeDimentions.y * cellSize - cellSize / 2);
+            break;
+            case 3:
+                positions[0] = new Vector3(mazeDimentions.x * cellSize - cellSize / 2, cellSize / 2);
+            break;
+            default:
+                positions[0] = Vector3.zero;
+            break;
+        }
         positions[1] = mazeGenerator.RandomPositionInMazeBoundary();
         positions[2] = mazeGenerator.RandomPositionInMaze();
         return positions;

@@ -6,7 +6,18 @@ public class PlayerInitializer : MonoBehaviour
 {
     public void Init(int id,Color c)
     {
-        GetComponent<AirconsoleInputManager>().SetId(id);
+        var manager = GetComponent<AirconsoleInputManager>();
+        manager.SetId(id);
+        int number = manager.GetPlayerNumber(id);
+        int total = manager.GetTotalPlayers();
+        Debug.Log("number");
+        Debug.Log(number);
+        GameObject obj = GameObject.Find("Camera" + (number+1).ToString());
+        if (obj)
+        {
+            obj.GetComponent<FollowPlayer>().SetTransform(gameObject.GetComponent<Transform>(), number+1, total);
+
+        }
         
         var renderer = GetComponent<SpriteRenderer>();
         
@@ -15,4 +26,5 @@ public class PlayerInitializer : MonoBehaviour
         
         GetComponent<KeyOwner>().SetCode(id);
     }
+    
 }

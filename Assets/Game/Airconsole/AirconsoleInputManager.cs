@@ -29,4 +29,13 @@ public class AirconsoleInputManager : MonoBehaviour, IGetInput
             input = new Vector2((float)data["horizontal"], (float)data["vertical"]).normalized;
         }
     }
+
+    public int GetPlayerNumber(int id)
+    {
+        return AirConsole.instance.ConvertDeviceIdToPlayerNumber(id);
+    }
+    public int GetTotalPlayers()
+    {
+        return AirConsole.instance.GetActivePlayerDeviceIds.Count;
+    }
 }
