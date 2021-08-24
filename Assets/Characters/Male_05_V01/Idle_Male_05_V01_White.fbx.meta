@@ -6,9 +6,64 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: 1604398722-eye1
+    second: {fileID: 2800000, guid: 66700fa4a08619f4bbf81f15f0f65884, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Image_0
+    second: {fileID: 2800000, guid: e00f3b1b3e65ecb498cd2347d062a916, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pants_BaseColor
+    second: {fileID: 2800000, guid: d76f85c9ef3fc5440b72f8b777ba30ab, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Pants_Normal
+    second: {fileID: 2800000, guid: a554c12dbcc9fc14286a9b1c6593f179, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Shirt_NormaOPGL
+    second: {fileID: 2800000, guid: fd6e28399251bde41ab4b8cbca5e874e, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Shoes_BaseColor
+    second: {fileID: 2800000, guid: 4094bfecdb3e5c349807277fe82c43a0, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Shoes_NormaOPGL
+    second: {fileID: 2800000, guid: 9cd6463ac5662914780685c1b043c328, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: body_texture
+    second: {fileID: 2800000, guid: 52325aaee8bd5af41bff7a0ec2c82e06, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: face_texture
+    second: {fileID: 2800000, guid: 30c33ab2bb09dd84f884cdd2346619af, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: glasses_id_8_D
+    second: {fileID: 2800000, guid: 0607e6e4e8a524548bcc156f28a939d9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: hair_color
+    second: {fileID: 2800000, guid: dcd1fd2fb6aa35f42ac92422bfd27afd, type: 3}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

@@ -7,7 +7,7 @@ using Newtonsoft.Json.Linq;
 
 public class InitializeMaze : MonoBehaviour
 {
-    [SerializeField] private PlayerInitializer playerPrefab;
+    [SerializeField] public PlayerInitializer [] playerPrefab;
     [SerializeField] private Door doorPrefab;
     [SerializeField] private Key keyPrefab;
     int connections = 0;
@@ -57,7 +57,7 @@ public class InitializeMaze : MonoBehaviour
             Debug.Log("Initialized");
             Debug.Log(i);
             var color = ColorFromString(colors[i]);
-            var player = Instantiate(playerPrefab);
+            var player = Instantiate(playerPrefab[i]);
             var door = Instantiate(doorPrefab);
             var key = Instantiate(keyPrefab);
 

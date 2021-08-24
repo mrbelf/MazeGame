@@ -1190,7 +1190,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ec0362583973d409b043a523cc2abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
+  playerPrefab:
+  - {fileID: -7961465585251076001, guid: a4966e57ca65a464ca63c551546617cf, type: 3}
+  - {fileID: 3694863407148042565, guid: 8d1ab8e23eaf8164f956ceb9d2451b4f, type: 3}
+  - {fileID: 7065891055665583403, guid: 112f3b97ed3d7604787778e54f6355f8, type: 3}
+  - {fileID: 6173751040890425557, guid: f54ea4dca3aa56b42acdb6ccf8d11d11, type: 3}
   doorPrefab: {fileID: 7015368420167404191, guid: afb549d2f0dadb24ab17eab6d979d619, type: 3}
   keyPrefab: {fileID: 2014340961187078926, guid: 21967745bafaa22429e8326ff07603ca, type: 3}
   colors:
