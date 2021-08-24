@@ -7,7 +7,12 @@ public class PlayerInitializer : MonoBehaviour
     public void Init(int id,Color c)
     {
         GetComponent<AirconsoleInputManager>().SetId(id);
-        GetComponent<SpriteRenderer>().color = c;
+        
+        var renderer = GetComponent<SpriteRenderer>();
+        
+        if(renderer)
+            renderer.color = c;
+        
         GetComponent<KeyOwner>().SetCode(id);
     }
 }
