@@ -27,7 +27,7 @@ public class PlayerInitializer : MonoBehaviour
     {
         var mat = new Material(projector.material);
         mat.name += "I";
-        mat.SetColor("_Color", color);
+        mat.SetColor("_Color", color * 0.7F);
         projector.material = mat;
     }
 }
