@@ -281,9 +281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a860c7fd8cba4c45858d64a7970ae67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 1015755736696075614, guid: 1729a0c6f63f70b4a995c47e44f30b24, type: 3}
-  doorPrefab: {fileID: 0}
-  keyPrefab: {fileID: 0}
   colors:
   - blue
   - green

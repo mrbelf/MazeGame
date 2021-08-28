@@ -10,8 +10,8 @@ public class InitializeMaze : MonoBehaviour
     [SerializeField] public PlayerInitializer [] playerPrefab;
     [SerializeField] private Door doorPrefab;
     [SerializeField] private Key keyPrefab;
-    int connections = 0;
     private MazeGenerator mazeGenerator;
+    PlayerManager skinManager;
 
 
     [SerializeField] private string[] colors;
@@ -42,6 +42,7 @@ public class InitializeMaze : MonoBehaviour
 
     private void Start()
     {
+        skinManager = GameObject.Find("ConnectionManager").GetComponent<PlayerManager>();
         mazeGenerator = FindObjectOfType<MazeGenerator>();
         var maze = mazeGenerator.GenerateMaze();
         mazeGenerator.BuildMaze(maze);
@@ -57,7 +58,7 @@ public class InitializeMaze : MonoBehaviour
             Debug.Log("Initialized");
             Debug.Log(i);
             var color = ColorFromString(colors[i]);
-            var player = Instantiate(playerPrefab[i]);
+            var player = Instantiate(playerPrefab[skinManager.GetSkin(i)]);
             var door = Instantiate(doorPrefab);
             var key = Instantiate(keyPrefab);
 

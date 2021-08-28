@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class WinnerOnCollision : MonoBehaviour
 {
     GameObject conManager;
-    ScoreManager scoManager;
+    PlayerManager scoManager;
 
     private void Start()
     {
         conManager = GameObject.Find("ConnectionManager");
-        scoManager = conManager.GetComponent<ScoreManager>();
+        scoManager = conManager.GetComponent<PlayerManager>();
     }
 
     public void CallWinner(int id)

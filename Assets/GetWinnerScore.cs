@@ -10,11 +10,11 @@ public class GetWinnerScore : MonoBehaviour
     // Start is called before the first frame update
     public GameObject [] players;
     public GameObject header;
-    ScoreManager manager;
+    PlayerManager manager;
     void Start()
     {
         var size = AirConsole.instance.GetActivePlayerDeviceIds.Count;
-        manager = GameObject.Find("ConnectionManager").GetComponent<ScoreManager>();
+        manager = GameObject.Find("ConnectionManager").GetComponent<PlayerManager>();
         for (int i=0; i<4; i++)
         {
             if(i<size)

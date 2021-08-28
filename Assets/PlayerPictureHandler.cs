@@ -31,11 +31,11 @@ public class PlayerPictureHandler : MonoBehaviour
             locked = temp2;
             if (locked == true)
             {
-                lockedText.GetComponent<Text>().text = "[                       ]";
+                lockedText.GetComponent<Text>().text = "[                               ]";
             }
             else
             {
-                lockedText.GetComponent<Text>().text = "<                       >";
+                lockedText.GetComponent<Text>().text = "<                               >";
             }
         }
     }

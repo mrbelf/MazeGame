@@ -10,8 +10,13 @@ public class AirConsolePlayerChecker : MonoBehaviour
     public GameObject [] PlayerPicture;
     Dictionary<int, int> skinMapping = new Dictionary<int, int>();
     Dictionary<int, bool> lockedMapping = new Dictionary<int, bool>();
-    int skinsLength = 2;
+    public int skinsLength = 2;
+    PlayerManager skinManager;
 
+    private void Start()
+    {
+        skinManager = GameObject.Find("ConnectionManager").GetComponent<PlayerManager>();
+    }
     void Update()
     {
         var ready = true;
@@ -51,6 +56,10 @@ public class AirConsolePlayerChecker : MonoBehaviour
         }
         if(ready == true && collection.Count > 0)
         {
+            for (int i =0; i < collection.Count; i++)
+            {
+                skinManager.SetSkin(skinMapping[AirConsole.instance.ConvertPlayerNumberToDeviceId(i)], i);
+            }
             SceneManager.LoadScene(sceneName: "Scene");
         }
     }

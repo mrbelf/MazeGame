@@ -957,8 +957,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451327464}
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
-  m_LocalPosition: {x: 5, y: 5, z: 0.05}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 7.5, y: 7.5, z: 0.05}
+  m_LocalScale: {x: 1.5, y: 1, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
@@ -1266,8 +1266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GenerateOnAwake: 0
   maze: []
-  rows: 10
-  columns: 10
+  rows: 15
+  columns: 15
   rightWallPrefab: {fileID: 219807702797180311, guid: e10b3d9c488a98943a128a6a6be08cbf, type: 3}
   rightWallPrefabTorch: {fileID: 118149741631071494, guid: 3625cfca0548ee441b8f0b84328997fb, type: 3}
   topWallPrefab: {fileID: 5831311622916872897, guid: 61817b2bde0e3064da8f75a340c3c626, type: 3}
@@ -1673,9 +1673,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab:
   - {fileID: -7961465585251076001, guid: a4966e57ca65a464ca63c551546617cf, type: 3}
+  - {fileID: 6173751040890425557, guid: f54ea4dca3aa56b42acdb6ccf8d11d11, type: 3}
   - {fileID: 3694863407148042565, guid: 8d1ab8e23eaf8164f956ceb9d2451b4f, type: 3}
   - {fileID: 7065891055665583403, guid: 112f3b97ed3d7604787778e54f6355f8, type: 3}
-  - {fileID: 6173751040890425557, guid: f54ea4dca3aa56b42acdb6ccf8d11d11, type: 3}
   doorPrefab: {fileID: 7015368420167404191, guid: afb549d2f0dadb24ab17eab6d979d619, type: 3}
   keyPrefab: {fileID: 2014340961187078926, guid: 21967745bafaa22429e8326ff07603ca, type: 3}
   colors:
