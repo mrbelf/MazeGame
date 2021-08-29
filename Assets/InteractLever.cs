@@ -4,42 +4,30 @@ using UnityEngine;
 
 public class InteractLever : MonoBehaviour
 {
-    public GameObject button;
-    public GameObject lights;
+    public GameObject spotLight;
     private bool isCooldown = false;
-    private float timeRemaining = 25;
+    private float timeRemaining = 45;
+    private float timeWall = 10;
+    private bool wallDown = false;
+    private WallMovement [] walls;
+    private void Start()
+    {
+        walls = GameObject.FindObjectsOfType<WallMovement>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!isCooldown)
         {
             isCooldown = true;
-            timeRemaining = 25;
-            SetButton(false);
-            Key[] array = GameObject.FindObjectsOfType<Key>();
-            if(array.Length == 2)
+            timeRemaining = 45;
+            SetLever(false);
+            for(int i = 0; i < walls.Length; i++)
             {
-                SwitchColors(array, 0, 1);
+                walls[i].GetComponent<WallMovement>().LowerWall();
             }
-            else
-            {
-                for (int i = 0; i < array.Length; i++)
-                {
-                    SwitchColors(array, i, (i + Random.Range(1, array.Length)) % array.Length);
-                }
-            }
+            timeWall = 10;
+            wallDown = true;
         }
-    }
-
-    private void SwitchColors(Key [] array, int i, int j)
-    {
-        int temp = array[i].code;
-        Color cTemp = array[i].GetComponent<Renderer>().material.GetColor("_Color");
-
-        array[i].GetComponent<Renderer>().material.SetColor("_Color", array[j].GetComponent<Renderer>().material.GetColor("_Color"));
-        array[i].GetComponent<Key>().code = array[j].GetComponent<Key>().code;
-
-        array[j].GetComponent<Renderer>().material.SetColor("_Color", cTemp);
-        array[j].GetComponent<Key>().code = temp;
     }
 
     private void Update()
@@ -47,19 +35,31 @@ public class InteractLever : MonoBehaviour
         if (isCooldown)
         {
             timeRemaining -= Time.deltaTime;
-            if(timeRemaining < 0)
+            if (timeRemaining < 0)
             {
-                timeRemaining = 25;
+                timeRemaining = 45;
                 isCooldown = false;
-                SetButton(true);
+                SetLever(true);
+            }
+        }
+        if (wallDown)
+        {
+            timeWall -= Time.deltaTime;
+            if (timeWall < 0)
+            {
+                for (int i = 0; i < walls.Length; i++)
+                {
+                    walls[i].GetComponent<WallMovement>().RiseWall();
+                }
+                wallDown = false;
+                timeWall = 10;
             }
         }
     }
 
-    private void SetButton(bool on)
+    private void SetLever(bool on)
     {
-        Transform tr = button.GetComponent<Transform>();
-        tr.position += new Vector3(0f, 0f, on ? (-0.05f) : (0.05f));
-        lights.SetActive(on); 
+        transform.eulerAngles = new Vector3(0, 0, on ? 0 : 180);
+        spotLight.SetActive(on);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RandomizeLocation : MonoBehaviour
 {
+    public float zOffSet;
     // Start is called before the first frame update
     MazeGenerator maze;
     private void Start()
@@ -11,7 +12,7 @@ public class RandomizeLocation : MonoBehaviour
         maze = GameObject.Find("MazeGenerator").GetComponent<MazeGenerator>();
 
         Vector3 pos = maze.RandomPositionInMaze();
-        pos.z = -0.2f;
+        pos.z = zOffSet;
 
         transform.position = pos;
     }

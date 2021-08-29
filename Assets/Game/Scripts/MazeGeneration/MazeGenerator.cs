@@ -14,8 +14,10 @@ public class MazeGenerator : MonoBehaviour
     [SerializeField] public int columns = 10;
     [SerializeField] GameObject rightWallPrefab;
     [SerializeField] GameObject rightWallPrefabTorch;
+    [SerializeField] GameObject rightWallPrefabMoving;
     [SerializeField] GameObject topWallPrefab;
     [SerializeField] GameObject topWallPrefabTorch;
+    [SerializeField] GameObject topWallPrefabMoving;
     [SerializeField] GameObject pillar;
     private int[,] map; //1 = torch, 2 = door, 3 = others
 
@@ -50,7 +52,7 @@ public class MazeGenerator : MonoBehaviour
         {
             foreach (Cell c in maze)
             {
-                c.BuildWalls(topWallPrefab, topWallPrefabTorch, rightWallPrefab, rightWallPrefabTorch, map);
+                c.BuildWalls(topWallPrefab, topWallPrefabTorch, topWallPrefabMoving, rightWallPrefab, rightWallPrefabTorch, rightWallPrefabMoving, map, rows, columns);
             }
             if(pillar)
                 BuildPillars();
@@ -134,9 +136,9 @@ public class MazeGenerator : MonoBehaviour
     public List<Cell> GenerateMaze() 
     {
         maze = new List<Cell>();
-        for (int j = 0; j < rows; j++) 
+        for (int j = 0; j < columns; j++) 
         {
-            for (int i = 0; i < columns; i++) 
+            for (int i = 0; i < rows; i++) 
             {
                 var cell = new Cell(i, j);
                 maze.Add(cell);
@@ -283,16 +285,18 @@ public class MazeGenerator : MonoBehaviour
             }
         }
 
-        public void BuildWalls(GameObject topWallPrefab, GameObject topWallPrefabTorch, GameObject rightWallPrefab, GameObject rightWallPrefabTorch, int [,] map) 
+        public void BuildWalls(GameObject topWallPrefab, GameObject topWallPrefabTorch, GameObject topWallPrefabMoving, GameObject rightWallPrefab, GameObject rightWallPrefabTorch, GameObject rightWallPrefabMoving, int [,] map, int rows, int columns) 
         {
             var x = this.i * cellSize;
             var y = this.j * cellSize;
             var hasTorchRight = UnityEngine.Random.Range(0f, 1f) < 0.18;
             var hasTorchTop = UnityEngine.Random.Range(0f, 1f) < 0.18;
+            var canMoveRight = (i < rows-1) && UnityEngine.Random.Range(0f, 1f) < 0.4;
+            var canMoveTop = (j < columns-1) && UnityEngine.Random.Range(0f, 1f) < 0.4;
 
             if (rightWall) 
             {
-                var rightWall = Instantiate(hasTorchRight ? rightWallPrefabTorch :  rightWallPrefab);
+                var rightWall = Instantiate(hasTorchRight ? rightWallPrefabTorch :  (canMoveRight ? rightWallPrefabMoving  : rightWallPrefab));
                 rightWall.transform.position = new Vector3(x + cellSize, y + (cellSize/2));
                 if(hasTorchRight)
                     map[i, j] = 1;
@@ -300,7 +304,7 @@ public class MazeGenerator : MonoBehaviour
 
             if (topWall) 
             {
-                var topWall = Instantiate(hasTorchTop ? topWallPrefabTorch : topWallPrefab);
+                var topWall = Instantiate(hasTorchTop ? topWallPrefabTorch : (canMoveTop ? topWallPrefabMoving : topWallPrefab));
                 topWall.transform.position = new Vector3(x + (cellSize/2), y + cellSize);
                 if (hasTorchTop)
                     map[i, j] = 1;
