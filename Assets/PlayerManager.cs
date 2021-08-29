@@ -28,7 +28,10 @@ public class PlayerManager : MonoBehaviour
     {
         return winner;
     }
-
+    public int GetWinnerSkin()
+    {
+        return skins[winner];
+    }
     public void AddPlayer(int id)
     {
         scoreBoard[id] = 0;

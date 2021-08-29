@@ -15,12 +15,12 @@
         e.id="black";
         airconsole = new AirConsole({"orientation": "landscape"});
        
-        airconsole.onActivePlayersChange = function(player_number) {
-          updateText(player_number);
-        }
-        airconsole.onReady = function() {
-          updateText();
-        }
+        //airconsole.onActivePlayersChange = function(player_number) {
+        //  updateText(player_number);
+        //}
+        //airconsole.onReady = function() {
+        //  updateText();
+        //}
 
         airconsole.onMessage = function(id, data)
         {
@@ -54,18 +54,18 @@
         }
       }
   
-    function updateText(player_number) {
-      var div = document.getElementById("player_id");
-        if (airconsole.getActivePlayerDeviceIds().length == 0) {
-          div.innerHTML = "Waiting for more players.";
-        } else if (player_number == undefined) {
-          div.innerHTML = "This is a 2 player game";
-        } else if (player_number == 0) {
-          div.innerHTML = "You are the player on the left";
-        } else if (player_number == 1) {
-          div.innerHTML = "You are the player on the right";
-        };
-    }
+    //function updateText(player_number) {
+    // var div = document.getElementById("player_id");
+    //   if (airconsole.getActivePlayerDeviceIds().length == 0) {
+    //      div.innerHTML = "Waiting for more players.";
+    //    } else if (player_number == undefined) {
+    //      div.innerHTML = "This is a 2 player game";
+    //    } else if (player_number == 0) {
+    //      div.innerHTML = "You are the player on the left";
+    //    } else if (player_number == 1) {
+    //      div.innerHTML = "You are the player on the right";
+    //    };
+    //}
   
       function input(horizontal, vertical) {
         airconsole.message(AirConsole.SCREEN, {horizontal: horizontal, vertical: vertical})

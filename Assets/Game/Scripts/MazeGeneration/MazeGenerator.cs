@@ -287,8 +287,8 @@ public class MazeGenerator : MonoBehaviour
         {
             var x = this.i * cellSize;
             var y = this.j * cellSize;
-            var hasTorchRight = UnityEngine.Random.Range(0f, 1f) < 0.3;
-            var hasTorchTop = UnityEngine.Random.Range(0f, 1f) < 0.3;
+            var hasTorchRight = UnityEngine.Random.Range(0f, 1f) < 0.18;
+            var hasTorchTop = UnityEngine.Random.Range(0f, 1f) < 0.18;
 
             if (rightWall) 
             {
