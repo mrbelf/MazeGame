@@ -34,7 +34,6 @@ public class WallMovement : MonoBehaviour
             if(z-speed < zHigh)
             {
                 state = "stopped";
-                coll.enabled = true;
             }
             else
             {
@@ -62,6 +61,7 @@ public class WallMovement : MonoBehaviour
     public void RiseWall()
     {
         state = "up";
+        coll.enabled = true;
     }
 
 }
